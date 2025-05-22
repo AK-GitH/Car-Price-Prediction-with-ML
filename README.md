@@ -1,31 +1,39 @@
-# Car Price Prediction
+# 🚗 Car Price Prediction using Python
 
-A machine learning project to predict the **selling price of used cars** based on features like fuel type, transmission, car age, and more.
+This project demonstrates how to **predict used car prices** based on features like **fuel type**, **transmission**, **car age**, and more. It uses a **Random Forest Regressor**, a powerful ensemble machine learning algorithm, to model the relationship between car features and selling price.
 
-## Overview
+---
 
-This project uses a **Random Forest Regressor** within a scikit-learn pipeline that handles preprocessing of categorical and numerical features automatically. The model is evaluated using **Mean Squared Error (MSE)** and **R² Score**. The project also includes visualizations to provide insights into price trends by fuel type and transmission.
+## Project Description
 
-## Files
+> **Car price prediction** helps estimate the selling price of a used car by analyzing historical data such as fuel type, kilometers driven, and vehicle age.
 
-- `car data.csv` – Original dataset of used car listings.  
-- `clean_data.py` – Script to clean and preprocess raw data, removing duplicates, handling missing values, creating derived features, and removing outliers. Saves cleaned data to `cleaned_car_data.csv`.  
-- `predict_car_price.py` – Main modeling script: loads cleaned data, trains the model, evaluates, and shows results and visualizations.
+This project processes raw car data (`car data.csv`), cleans it, and builds a machine learning model that can predict a car's selling price based on its attributes.
 
-## Highlights
+---
 
-- Robust data cleaning pipeline separate from modeling.  
-- Automatic feature preprocessing with `ColumnTransformer` and `OneHotEncoder`.  
-- Accurate regression model using `RandomForestRegressor`.  
-- Clear evaluation metrics: MSE and R².  
-- Visual insights:  
-  - **Actual vs Predicted Prices**  
-  - **Average Selling Price by Fuel Type**  
-  - **Average Selling Price by Transmission**
+## Files Included
 
-## Installation
+- `car data.csv` — Raw dataset  
+- `cleaning_dat.py` — Script to clean the raw data:  
+  - Removes duplicates and outliers  
+  - Handles missing values  
+  - Converts year to `Car_Age`  
+  - Saves the cleaned dataset as `cleaned_car_data.csv`  
+- `carPrice_prediction.py` — Machine learning pipeline to:  
+  - Encode categorical variables using Target Encoding  
+  - Train a Random Forest Regressor  
+  - Evaluate using R² and Mean Squared Error  
+  - Visualize actual vs. predicted prices
 
-Make sure you have Python 3.x installed, then install dependencies:
+---
+
+### 1. Install Required Packages
+
+Ensure Python 3.x is installed, then run:
 
 ```bash
-pip install pandas scikit-learn matplotlib seaborn
+pip install pandas matplotlib seaborn scikit-learn category_encoders
+```
+
+### 2. Run the `cleaning_data.py` which will clean the data and then run `carPrice_prediction.py`
