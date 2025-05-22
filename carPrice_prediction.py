@@ -47,18 +47,24 @@ y_pred = pipe.predict(X_test)
 print("\nFirst 10 Predictions:\n")
 print(pd.DataFrame({'Actual': y_test.values[:10], 'Predicted': y_pred[:10]}).round(2))
 
-train_r2 = pipe.score(X_train, y_train)
-test_r2 = pipe.score(X_test, y_test)
+# Evaluate model performance
+train_r2 = pipe.score(X_train, y_train)  # R² score on training data
+test_r2 = pipe.score(X_test, y_test)     # R² score on test data
 
+# Print key metrics
 print(f"\nTrain R²: {train_r2:.2f}")
 print(f"Test R²: {test_r2:.2f}")
 print(f"Mean Squared Error: {mean_squared_error(y_test, y_pred):.2f}")
 
+# Combine predictions with test data
 X_test_with_preds = X_test.copy()
 X_test_with_preds["Actual"] = y_test.values
 X_test_with_preds["Predicted"] = y_pred
+
+# Group by Car Age and calculate average actual vs predicted price
 grouped = X_test_with_preds.groupby("Car_Age")[["Actual", "Predicted"]].mean().round(2)
 
+# Plot bar chart: Average predicted vs actual selling price by car age
 grouped.plot(kind='bar', figsize=(10, 5), colormap='Paired')
 plt.title("Average Actual vs Predicted Price by Car Age")
 plt.xlabel("Car Age (Years)")
