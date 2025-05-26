@@ -1,4 +1,4 @@
-# 🚗 Car Price Prediction using Python
+# Car Price Prediction using Python
 
 This project demonstrates how to **predict used car prices** based on features like **fuel type**, **transmission**, **car age**, and more. It uses a **Random Forest Regressor**, a powerful ensemble machine learning algorithm, to model the relationship between car features and selling price.
 
@@ -15,16 +15,17 @@ This project processes raw car data (`car data.csv`), cleans it, and builds a ma
 ## Files Included
 
 - `car data.csv` — Raw dataset  
-- `cleaning_dat.py` — Script to clean the raw data:  
+- `cleaning_data.py` — Script to clean the raw data:  
   - Removes duplicates and outliers  
   - Handles missing values  
   - Converts year to `Car_Age`  
   - Saves the cleaned dataset as `cleaned_car_data.csv`  
-- `carPrice_prediction.py` — Machine learning pipeline to:  
+- `carPrice_Prediction.py` — Machine learning pipeline to:  
   - Encode categorical variables using Target Encoding  
   - Train a Random Forest Regressor  
   - Evaluate using R² and Mean Squared Error  
-  - Visualize actual vs. predicted prices
+  - Visualize actual vs. predicted prices  
+  - **Saves the trained model as `car_price_model.joblib`**
 
 ---
 
